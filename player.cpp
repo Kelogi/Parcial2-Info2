@@ -248,3 +248,48 @@ bool player::verificarMovD4(int x, int y)
 
 
 
+void player::recibirMov_Player()
+{
+    int fila;
+    int MatrizX, MatrizY;
+    char columna;
+    cout<<"Digite el numero de la fila correspondiente a la casilla [1,2,3,4,5,6,7,8]";
+    cin>>fila;
+    cout<<"Digite la letra correspondiente a la casilla [A,B,C,D,E,F,G,H]";
+    cin>>columna;
+
+    MatrizY=fila-1;
+    if(columna=='A'){
+        MatrizX=0;
+    }
+    else if(columna=='B'){
+        MatrizX=1;
+    }
+    else if(columna=='C'){
+        MatrizX=2;
+    }
+
+    else if(columna=='D'){
+        MatrizX=3;
+    }
+
+    else if(columna=='E'){
+        MatrizX=4;
+    }
+
+    else if(columna=='F'){
+        MatrizX=5;
+    }
+    else if(columna=='G'){
+        MatrizX=6;
+    }
+
+    else if(columna=='H'){
+        MatrizX=7;
+    }
+
+}
+
+
+
+

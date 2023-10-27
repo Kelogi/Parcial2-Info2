@@ -21,10 +21,13 @@ public:
     bool verificarMovD3(int x, int y);
     bool verificarMovD4(int x, int y);
 
+    void recibirMov_Player();
+
 
 private:
     char ficha_jugador;
     char ficha_contrario;
+    int tamaniotablero;
     char **tableroPlayer; //Matriz del juego
     int cantidad_fichas=2;//cantidad de fichas negras Player1.
 };
