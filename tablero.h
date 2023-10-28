@@ -16,6 +16,7 @@ public:
     void actualizarDerecha(int movX,int movY, char Ficha, char Fichacontrario);
     void actualizarIzq(int movX,int movY, char Ficha, char Fichacontrario);
     void actualizarD1(int movX,int movY, char Ficha, char Fichacontrario);
+    void actualizarD2(int movX,int movY, char Ficha, char Fichacontrario);
 
     void imprimirTablero();
 

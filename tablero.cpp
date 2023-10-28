@@ -188,10 +188,45 @@ void tablero::actualizarD1(int movX, int movY, char Ficha, char Fichacontrario)
         for(int i=0;i<Fichas;i++){
             MatTablero[auxiliar_x][auxiliar_y]=Ficha;
 
-            auxiliar_x=movX-1;
-            auxiliar_y=movY+1;
+            auxiliar_x-=1;
+            auxiliar_y+=1;
         }
     }
+}
+
+void tablero::actualizarD2(int movX, int movY, char Ficha, char Fichacontrario)
+{
+    bool sandwich=false;
+    int Fichas=0;
+    int auxiliar_x=movX;
+    int auxiliar_y=movY;
+
+    while (auxiliar_x<7 and auxiliar_y<7){
+        auxiliar_x+=1;
+        auxiliar_y+=1;
+
+        if(MatTablero[auxiliar_x][auxiliar_y]==Ficha and auxiliar_x-movX-1==Fichas and Fichas!=0){
+            sandwich=true;
+            break;
+        }
+
+        else{
+            if(MatTablero[auxiliar_x][auxiliar_y]==Fichacontrario) Fichas+=1;
+        }
+    }
+
+    //actualizar tablero
+    if(sandwich==true){
+        auxiliar_x=movX+1;
+        auxiliar_y=movY+1;
+        for(int i=0;i<Fichas;i++){
+            MatTablero[auxiliar_x][auxiliar_y]=Ficha;
+
+            auxiliar_x+=1;
+            auxiliar_y+=1;
+        }
+    }
+
 }
 
 

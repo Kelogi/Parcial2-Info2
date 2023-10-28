@@ -41,10 +41,10 @@ int main()
       }
    }
 
-    puntero_tablero[3][3]='*';
-    puntero_tablero[3][4]='*';
-    puntero_tablero[3][5]='-';
-    //puntero_tablero[4][4]='*';
+    puntero_tablero[7][7]='-';
+    puntero_tablero[6][6]='*';
+    puntero_tablero[5][5]='*';
+    puntero_tablero[4][4]='*';
 
 
 
@@ -54,13 +54,14 @@ int main()
 
    tablerito.imprimirTablero();
 
+   tablerito.actualizarD2(3,3,'-','*');
    cout<<"\n";
    cout<<"\n";
    cout<<"\n";
-   tablerito.actualizarArriba(3,2,'-','*');
-   tablerito.actualizarAbajo(3,2,'-','*');
-   tablerito.actualizarDerecha(3,2,'-','*');
-   tablerito.actualizarIzq(3,2,'-','*');
+   //tablerito.actualizarArriba(3,2,'-','*');
+   //tablerito.actualizarAbajo(3,2,'-','*');
+   //tablerito.actualizarDerecha(3,2,'-','*');
+   //tablerito.actualizarIzq(3,2,'-','*');
    tablerito.imprimirTablero();
 
 
