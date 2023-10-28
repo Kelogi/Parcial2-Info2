@@ -39,7 +39,40 @@ void tablero::actualizarArriba(int movX, int movY, char Ficha, char Fichacontrar
         for(int i=movY-1;i>PY_contraria;i--){
             MatTablero[movX][i]=Ficha;
         }
+    }
+}
+
+void tablero::actualizarAbajo(int movX, int movY, char Ficha, char Fichacontrario)
+{
+    bool sandwich;
+    int PY_contraria;
+    int Fichas=0;
+
+    if(movY<6){
+        for(int k=movY+1;k<=7;k++){
+
+            if(MatTablero[movX][k]==Ficha and Fichas+1==k-movY and Fichas!=0){
+                sandwich=true;
+                PY_contraria=k;
+                break;
+            }
+            else{
+                if(MatTablero[movX][k]==Fichacontrario) Fichas+=1;
+            }
+        }
+        sandwich=false;
 
     }
 
+    else{
+      sandwich= false;
+    }
+
+    //si hay sandwich en esa direecion modificar la matriz
+
+    if(sandwich==true){
+        for(int i=movY+1;i<PY_contraria;i++){
+            MatTablero[movX][i]=Ficha;
+        }
+    }
 }
