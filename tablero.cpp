@@ -16,8 +16,10 @@ void tablero::Actualizartablero(int MovX, int MovY, char ficha)
 
 void tablero::actualizarArriba(int movX, int movY, char Ficha, char Fichacontrario)
 {
+    MatTablero[movX][movY]=Ficha;
+
     int PY_contraria;
-    bool sandwich;
+    bool sandwich=false;
     int Fichas=0;
     if(movY>1){
         for(int k=movY-1;k>=0;k-=1){
@@ -31,7 +33,7 @@ void tablero::actualizarArriba(int movX, int movY, char Ficha, char Fichacontrar
                 if(MatTablero[movX][k]==Fichacontrario) Fichas+=1;
             }
         }
-        sandwich=false;
+
 
     }
 
@@ -49,7 +51,7 @@ void tablero::actualizarArriba(int movX, int movY, char Ficha, char Fichacontrar
 
 void tablero::actualizarAbajo(int movX, int movY, char Ficha, char Fichacontrario)
 {
-    bool sandwich;
+    bool sandwich=false;
     int PY_contraria;
     int Fichas=0;
 
@@ -65,7 +67,6 @@ void tablero::actualizarAbajo(int movX, int movY, char Ficha, char Fichacontrari
                 if(MatTablero[movX][k]==Fichacontrario) Fichas+=1;
             }
         }
-        sandwich=false;
 
     }
 
@@ -84,7 +85,7 @@ void tablero::actualizarAbajo(int movX, int movY, char Ficha, char Fichacontrari
 
 void tablero::actualizarDerecha(int movX, int movY, char Ficha, char Fichacontrario)
 {
-    bool sandwich;
+    bool sandwich=false;
     int PX_contraria;
     int Fichas=0;
 
@@ -100,7 +101,6 @@ void tablero::actualizarDerecha(int movX, int movY, char Ficha, char Fichacontra
                 if(MatTablero[k][movY]==Fichacontrario) Fichas+=1;
             }
         }
-        sandwich=false;
 
     }
 
@@ -120,7 +120,7 @@ void tablero::actualizarDerecha(int movX, int movY, char Ficha, char Fichacontra
 void tablero::actualizarIzq(int movX, int movY, char Ficha, char Fichacontrario)
 {
 
-    bool sandwich;
+    bool sandwich=false;
     int PX_contraria;
     int Fichas=0;
 
@@ -136,7 +136,6 @@ void tablero::actualizarIzq(int movX, int movY, char Ficha, char Fichacontrario)
                 if(MatTablero[k][movY]==Fichacontrario) Fichas+=1;
             }
         }
-        sandwich=false;
 
     }
 
@@ -150,6 +149,69 @@ void tablero::actualizarIzq(int movX, int movY, char Ficha, char Fichacontrario)
         }
     }
 
+}
 
+void tablero::actualizarD1(int movX, int movY, char Ficha, char Fichacontrario)
+{
+
+    bool sandwich=false;
+
+    int Fichas=0;
+    int auxiliar_x=movX;
+    int auxiliar_y=movY;
+
+
+    if(auxiliar_x>1 and auxiliar_y<6){
+        while (auxiliar_x>0 and auxiliar_y<7){
+            auxiliar_x-=1;
+            auxiliar_y+=1;
+
+            if(MatTablero[auxiliar_x][auxiliar_y]==Ficha and auxiliar_y-movY-1==Fichas and Fichas!=0){
+                sandwich=true;
+                break;
+            }
+
+            else{
+                if(MatTablero[auxiliar_x][auxiliar_y]==Fichacontrario) Fichas+=1;
+            }
+        }
+    }
+    else{
+        sandwich=false;
+    }
+
+
+    //actualizar tablero
+    if(sandwich==true){
+        auxiliar_x=movX-1;
+        auxiliar_y=movY+1;
+        for(int i=0;i<Fichas;i++){
+            MatTablero[auxiliar_x][auxiliar_y]=Ficha;
+
+            auxiliar_x=movX-1;
+            auxiliar_y=movY+1;
+        }
+    }
+}
+
+
+
+void tablero::imprimirTablero()
+{
+    //siempre que cambie las dimensiones del tablero se deben organizar la cantidad de lineas horizontales que se imprimen en los cout.
+    cout<<"---------------------------------"<<"\n";
+    for(int i=0;i<tamanio_tablero;i++){
+        for(int j=0;j<tamanio_tablero;j++){
+            cout<<"| ";
+            cout<<MatTablero[j][i]<<" ";
+            if((j+1)%tamanio_tablero==0){
+                cout<<"|"<<"\n";
+                cout<<"---------------------------------"<<"\n";
+            }
+
+        }
+
+
+    }
 }
 

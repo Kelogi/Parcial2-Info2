@@ -1,4 +1,5 @@
 #include "player.h"
+#include "tablero.h"
 #include <iostream>
 
 using namespace std;
@@ -19,19 +20,19 @@ int main()
 
            if(i==(tamanio_tablero/2) and j==(tamanio_tablero/2) ){
                //ficha blanca (*)
-               puntero_tablero[i][j]='*';
+               puntero_tablero[i][j]=' ';
            }
            else if (i==(tamanio_tablero/2) and j==(tamanio_tablero/2)-1){
                //ficha negra (-)
-               puntero_tablero[i][j]='-';
+               puntero_tablero[i][j]=' ';
            }
            else if (i==(tamanio_tablero/2)-1 and j==(tamanio_tablero/2)-1){
                //ficha blanca (*)
-               puntero_tablero[i][j]='*';
+               puntero_tablero[i][j]=' ';
            }
            else if (i==(tamanio_tablero/2)-1 and j==(tamanio_tablero/2)){
                //ficha negra (-)
-               puntero_tablero[i][j]='-';
+               puntero_tablero[i][j]=' ';
            }
 
            else{
@@ -41,16 +42,26 @@ int main()
    }
 
     puntero_tablero[3][3]='*';
-    puntero_tablero[4][3]='-';
-    puntero_tablero[3][4]='-';
-    puntero_tablero[4][4]='*';
+    puntero_tablero[3][4]='*';
+    puntero_tablero[3][5]='-';
+    //puntero_tablero[4][4]='*';
 
 
 
 
-   player negras(puntero_tablero,8, '*');
-   negras.movimientoP1ayer();
 
+   tablero tablerito(puntero_tablero);
+
+   tablerito.imprimirTablero();
+
+   cout<<"\n";
+   cout<<"\n";
+   cout<<"\n";
+   tablerito.actualizarArriba(3,2,'-','*');
+   tablerito.actualizarAbajo(3,2,'-','*');
+   tablerito.actualizarDerecha(3,2,'-','*');
+   tablerito.actualizarIzq(3,2,'-','*');
+   tablerito.imprimirTablero();
 
 
 
