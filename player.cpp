@@ -288,6 +288,8 @@ void player::recibirMov_Player()
         MatrizX=7;
     }
 
+
+
 }
 
 
