@@ -37,6 +37,7 @@ private:
     // variables que contienen la informacion del movimiento.
     int MovX;
     char MovY;
+
 };
 
 #endif // PLAYER_H

@@ -18,7 +18,6 @@ player::player(char **ptr_cargar, int cargar_tam, char ficha)
 
 bool player::movimientoP1ayer()
 {
-
     bool verificacionArriba=false;
     bool verificacionAbajo=false;
     bool verificacionIzq=false;
@@ -27,6 +26,8 @@ bool player::movimientoP1ayer()
     bool verificacionD2=false;
     bool verificacionD3=false;
     bool verifiacionD4=false;
+
+
 
     int cantidad_Movimientos=0;
     //Verificar que P1 puede realizar movmientos, si puede, se le informa cuales puede realizar.
