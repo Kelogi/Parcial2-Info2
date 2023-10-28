@@ -40,20 +40,15 @@ int main()
       }
    }
 
-    puntero_tablero[4][4]='*';
-    puntero_tablero[4][3]='-';
     puntero_tablero[3][3]='*';
-    puntero_tablero[3][4]='*';
-    puntero_tablero[3][5]='-';
-    puntero_tablero[2][6]='-';
-
-    puntero_tablero[5][4]='-';
-    puntero_tablero[5][5]='*';
+    puntero_tablero[4][3]='-';
+    puntero_tablero[3][4]='-';
+    puntero_tablero[4][4]='*';
 
 
 
 
-   player negras(puntero_tablero,8, '-');
+   player negras(puntero_tablero,8, '*');
    negras.movimientoP1ayer();
 
 

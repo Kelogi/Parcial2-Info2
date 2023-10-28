@@ -12,6 +12,8 @@ public:
 
 
     bool movimientoP1ayer();
+    void recibirMov_Player();
+
     bool verificarMovArriba(int x, int y);
     bool verificarMovAbajo(int x, int y);
     bool verificarMovDerecha(int x, int y);
@@ -21,7 +23,8 @@ public:
     bool verificarMovD3(int x, int y);
     bool verificarMovD4(int x, int y);
 
-    void recibirMov_Player();
+    int SaberMovX();
+    int SaberMovY();
 
 
 private:
@@ -30,6 +33,10 @@ private:
     int tamaniotablero;
     char **tableroPlayer; //Matriz del juego
     int cantidad_fichas=2;//cantidad de fichas negras Player1.
+
+    // variables que contienen la informacion del movimiento.
+    int MovX;
+    char MovY;
 };
 
 #endif // PLAYER_H
