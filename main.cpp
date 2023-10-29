@@ -41,10 +41,13 @@ int main()
       }
    }
 
-    puntero_tablero[7][7]='-';
-    puntero_tablero[6][6]='*';
-    puntero_tablero[5][5]='*';
-    puntero_tablero[4][4]='*';
+    puntero_tablero[7][0]='-';
+    puntero_tablero[6][1]='*';
+    puntero_tablero[5][2]='*';
+    puntero_tablero[4][3]='*';
+    puntero_tablero[3][4]='*';
+    puntero_tablero[2][5]='*';
+    puntero_tablero[1][6]='*';
 
 
 
@@ -54,7 +57,7 @@ int main()
 
    tablerito.imprimirTablero();
 
-   tablerito.actualizarD2(3,3,'-','*');
+   tablerito.actualizarD3(0,7,'-','*');
    cout<<"\n";
    cout<<"\n";
    cout<<"\n";
