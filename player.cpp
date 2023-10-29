@@ -30,7 +30,7 @@ bool player::movimientoP1ayer()
 
 
     int cantidad_Movimientos=0;
-    //Verificar que P1 puede realizar movmientos, si puede, se le informa cuales puede realizar.
+    //Verificar que P1 puede realizar movimientos, si puede, se le informa cuales puede realizar.
     for(int i = 0; i < tamaniotablero; i++){
        for(int j = 0; j < tamaniotablero; j++){
            //verificar movimientos verticales y horizontales en esa casilla en especifico
@@ -264,9 +264,9 @@ void player::recibirMov_Player()
 
     char columna;
 
-    cout<<"Digite el numero de la fila correspondiente a la casilla [1,2,3,4,5,6,7,8]";
+    cout<<"Digite el numero de la fila correspondiente a la casilla [1,2,3,4,5,6,7,8]: "<<"\n";
     cin>>MovX;
-    cout<<"Digite la letra correspondiente a la casilla [A,B,C,D,E,F,G,H]";
+    cout<<"Digite la letra correspondiente a la casilla [A,B,C,D,E,F,G,H]: "<<"\n";
     cin>>columna;
 
     MovY=MovX-1;

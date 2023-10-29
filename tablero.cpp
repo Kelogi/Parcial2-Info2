@@ -13,6 +13,7 @@ tablero::tablero(char **cargarMatriz)
 
 void tablero::actualizarTableroGeneral(int movX, int movY, char Ficha, char Fichacontrario)
 {
+    MatTablero[movX][movY]=Ficha;
     actualizarArriba(movX,movY,Ficha,Fichacontrario);
     actualizarAbajo(movX,movY,Ficha,Fichacontrario);
     actualizarIzq(movX,movY,Ficha,Fichacontrario);

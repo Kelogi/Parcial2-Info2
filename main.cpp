@@ -41,28 +41,49 @@ int main()
       }
    }
 
-
-
-
-
-
-
-
+    //objeto tablero
    tablero tablerito(puntero_tablero);
 
-   tablerito.imprimirTablero();
-
-   tablerito.actualizarD4(5,5,'-','*');
-   cout<<"\n";
-   cout<<"\n";
-   cout<<"\n";
-   //tablerito.actualizarArriba(3,2,'-','*');
-   //tablerito.actualizarAbajo(3,2,'-','*');
-   //tablerito.actualizarDerecha(3,2,'-','*');
-   //tablerito.actualizarIzq(3,2,'-','*');
-   tablerito.imprimirTablero();
+   //dos objetos tipo jugador
+   player fichasNegras(puntero_tablero,tamanio_tablero, '-');
+   player fichasBlancas(puntero_tablero,tamanio_tablero, '*');
 
 
+   bool QuienJuega=true; //comienzan las negras
+   for(;true;){
+
+       if(QuienJuega==true){
+
+           cout<<"Turno fichas negras"<<"\n";
+           if(fichasNegras.movimientoP1ayer()==true){
+               tablerito.imprimirTablero();
+               fichasNegras.recibirMov_Player();
+               tablerito.actualizarTableroGeneral(fichasNegras.SaberMovX(),fichasNegras.SaberMovY(),'-','*');
+           }
+           else{
+               cout<<"No tienes movimientos permitidos"<<"\n";
+
+           }
+           QuienJuega=false;
+       }
+
+       else{
+
+           cout<<"Turno fichas blancas"<<"\n";
+           if(fichasBlancas.movimientoP1ayer()==true){
+               tablerito.imprimirTablero();
+               fichasBlancas.recibirMov_Player();
+               tablerito.actualizarTableroGeneral(fichasBlancas.SaberMovX(),fichasBlancas.SaberMovY(),'*','-');
+           }
+           else{
+               cout<<"No tienes movmientos permitidos";
+
+           }
+           QuienJuega=true;
+
+       }
+
+   }
 
 
     cout << "Hello World!" << endl;
