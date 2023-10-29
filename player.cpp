@@ -247,6 +247,17 @@ bool player::verificarMovD4(int x, int y)
     return false;
 }
 
+int player::cantidadFichas_Jugador()
+{
+    cantidad_fichas=0;
+    for(int i=0;i<tamaniotablero;i++){
+        for(int j=0;j<tamaniotablero;j++){
+            if(tableroPlayer[j][i]==ficha_jugador) cantidad_fichas+=1;
+        }
+    }
+    return cantidad_fichas;
+}
+
 int player::SaberMovX()
 {
     return MovX;

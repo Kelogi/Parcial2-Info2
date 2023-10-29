@@ -22,6 +22,7 @@ public:
     bool verificarMovD2(int x, int y);
     bool verificarMovD3(int x, int y);
     bool verificarMovD4(int x, int y);
+    int cantidadFichas_Jugador();
 
     int SaberMovX();
     int SaberMovY();
@@ -32,7 +33,7 @@ private:
     char ficha_contrario;
     int tamaniotablero;
     char **tableroPlayer; //Matriz del juego
-    int cantidad_fichas=2;//cantidad de fichas negras Player1.
+    int cantidad_fichas;//cantidad de fichas
 
     // variables que contienen la informacion del movimiento.
     int MovX;

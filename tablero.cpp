@@ -312,6 +312,17 @@ void tablero::actualizarD4(int movX, int movY, char Ficha, char Fichacontrario)
 
 }
 
+int tablero::saberCantidadFichas()
+{
+    cantidadFichas=0;
+    for(int i=0;i<tamanio_tablero;i++){
+        for(int j=0;j<tamanio_tablero;j++){
+            if(MatTablero[j][i]=='*' or MatTablero[j][i]=='-') cantidadFichas+=1;
+        }
+    }
+    return cantidadFichas;
+}
+
 
 
 void tablero::imprimirTablero()

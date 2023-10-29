@@ -52,34 +52,39 @@ int main()
    bool QuienJuega=true; //comienzan las negras
    for(;true;){
 
-       if(QuienJuega==true){
+       if(tablerito.saberCantidadFichas()!=64){
+           if(QuienJuega==true){
 
-           cout<<"Turno fichas negras"<<"\n";
-           if(fichasNegras.movimientoP1ayer()==true){
-               tablerito.imprimirTablero();
-               fichasNegras.recibirMov_Player();
-               tablerito.actualizarTableroGeneral(fichasNegras.SaberMovX(),fichasNegras.SaberMovY(),'-','*');
+               cout<<"Turno fichas negras"<<"\n";
+               if(fichasNegras.movimientoP1ayer()==true){
+                   tablerito.imprimirTablero();
+                   fichasNegras.recibirMov_Player();
+                   tablerito.actualizarTableroGeneral(fichasNegras.SaberMovX(),fichasNegras.SaberMovY(),'-','*');
+               }
+               else{
+                   cout<<"No tienes movimientos permitidos"<<"\n";
+
+               }
+               QuienJuega=false;
            }
+
            else{
-               cout<<"No tienes movimientos permitidos"<<"\n";
+
+               cout<<"Turno fichas blancas"<<"\n";
+               if(fichasBlancas.movimientoP1ayer()==true){
+                   tablerito.imprimirTablero();
+                   fichasBlancas.recibirMov_Player();
+                   tablerito.actualizarTableroGeneral(fichasBlancas.SaberMovX(),fichasBlancas.SaberMovY(),'*','-');
+               }
+               else{
+                   cout<<"No tienes movmientos permitidos";
+
+               }
+               QuienJuega=true;
 
            }
-           QuienJuega=false;
-       }
-
+        }
        else{
-
-           cout<<"Turno fichas blancas"<<"\n";
-           if(fichasBlancas.movimientoP1ayer()==true){
-               tablerito.imprimirTablero();
-               fichasBlancas.recibirMov_Player();
-               tablerito.actualizarTableroGeneral(fichasBlancas.SaberMovX(),fichasBlancas.SaberMovY(),'*','-');
-           }
-           else{
-               cout<<"No tienes movmientos permitidos";
-
-           }
-           QuienJuega=true;
 
        }
 

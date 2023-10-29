@@ -19,11 +19,12 @@ public:
     void actualizarD2(int movX,int movY, char Ficha, char Fichacontrario);
     void actualizarD3(int movX,int movY, char Ficha, char Fichacontrario);
     void actualizarD4(int movX,int movY, char Ficha, char Fichacontrario);
+    int saberCantidadFichas();
 
     void imprimirTablero();
 
 private:
-
+    int cantidadFichas;
     int tamanio_tablero=8;
     char **MatTablero;
 };
