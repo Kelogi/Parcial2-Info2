@@ -38,6 +38,7 @@ int main()
            else{
                puntero_tablero[i][j]=' ';
            }
+
       }
    }
 
@@ -77,7 +78,7 @@ int main()
                    tablerito.actualizarTableroGeneral(fichasBlancas.SaberMovX(),fichasBlancas.SaberMovY(),'*','-');
                }
                else{
-                   cout<<"No tienes movmientos permitidos";
+                   cout<<"No tienes movmientos permitidos"<<"\n";
 
                }
                QuienJuega=true;
@@ -85,7 +86,18 @@ int main()
            }
         }
        else{
-
+           cout<<"fichas negras: "<<fichasNegras.cantidadFichas_Jugador()<<"\n";
+           cout<<"fichas blancas: "<<fichasBlancas.cantidadFichas_Jugador()<<"\n";
+           if(fichasNegras.cantidadFichas_Jugador()>fichasBlancas.cantidadFichas_Jugador()){
+               cout<<"FICHAS NEGRAS GANADORAS DEL JUEGO."<<"\n";
+               break;
+           }
+           else if(fichasNegras.cantidadFichas_Jugador()<fichasBlancas.cantidadFichas_Jugador()){
+               cout<<"FICHAS BLANCAS GANADORAS DEL JUEGO."<<"\n";
+               break;
+           }
+           else cout<<"EMPATE"<<"\n";
+           break;
        }
 
    }

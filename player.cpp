@@ -49,7 +49,7 @@ bool player::movimientoP1ayer()
 
               if(verificacionArriba==true or verificacionAbajo==true or verificacionDerecha==true or verificacionIzq==true or
                       verificacionD1==true or verificacionD2==true or verificacionD3==true or verifiacionD4==true){
-                       cout<<"Movimiento en, fila: "<<j+1<<" columna: "<<i+1<<"\n";
+                       cout<<"Movimiento en, fila: "<<j+1<<" columna: "<<char(65+i)<<"\n";
                        cantidad_Movimientos+=1;
               }
           }

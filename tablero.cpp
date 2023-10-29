@@ -329,18 +329,22 @@ void tablero::imprimirTablero()
 {
     //siempre que cambie las dimensiones del tablero se deben organizar la cantidad de lineas horizontales que se imprimen en los cout.
     cout<<"---------------------------------"<<"\n";
+    int fila=1;
     for(int i=0;i<tamanio_tablero;i++){
         for(int j=0;j<tamanio_tablero;j++){
             cout<<"| ";
             cout<<MatTablero[j][i]<<" ";
             if((j+1)%tamanio_tablero==0){
-                cout<<"|"<<"\n";
+                cout<<"|"<<" "<<fila<<"\n";
+                fila+=1;
                 cout<<"---------------------------------"<<"\n";
             }
 
         }
 
-
     }
+
+    cout<<"  A   B   C   D   E   F   G   H";
+    cout<<"\n";
 }
 
