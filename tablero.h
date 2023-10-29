@@ -9,8 +9,8 @@ public:
     tablero();
     tablero( char **cargarMatriz);
 
-    void Actualizartablero(int MovX,int MovY, char ficha);
 
+    void actualizarTableroGeneral(int movX,int movY, char Ficha, char Fichacontrario);
     void actualizarArriba(int movX,int movY, char Ficha, char Fichacontrario);
     void actualizarAbajo(int movX,int movY, char Ficha, char Fichacontrario);
     void actualizarDerecha(int movX,int movY, char Ficha, char Fichacontrario);
@@ -18,6 +18,7 @@ public:
     void actualizarD1(int movX,int movY, char Ficha, char Fichacontrario);
     void actualizarD2(int movX,int movY, char Ficha, char Fichacontrario);
     void actualizarD3(int movX,int movY, char Ficha, char Fichacontrario);
+    void actualizarD4(int movX,int movY, char Ficha, char Fichacontrario);
 
     void imprimirTablero();
 

@@ -10,8 +10,18 @@ tablero::tablero(char **cargarMatriz)
     MatTablero=cargarMatriz;
 }
 
-void tablero::Actualizartablero(int MovX, int MovY, char ficha)
+
+void tablero::actualizarTableroGeneral(int movX, int movY, char Ficha, char Fichacontrario)
 {
+    actualizarArriba(movX,movY,Ficha,Fichacontrario);
+    actualizarAbajo(movX,movY,Ficha,Fichacontrario);
+    actualizarIzq(movX,movY,Ficha,Fichacontrario);
+    actualizarDerecha(movX,movY,Ficha,Fichacontrario);
+    actualizarD1(movX,movY,Ficha,Fichacontrario);
+    actualizarD2(movX,movY,Ficha,Fichacontrario);
+    actualizarD3(movX,movY,Ficha,Fichacontrario);
+    actualizarD4(movX,movY,Ficha,Fichacontrario);
+
 }
 
 void tablero::actualizarArriba(int movX, int movY, char Ficha, char Fichacontrario)
@@ -258,6 +268,42 @@ void tablero::actualizarD3(int movX, int movY, char Ficha, char Fichacontrario)
             MatTablero[auxiliar_x][auxiliar_y]=Ficha;
 
             auxiliar_x+=1;
+            auxiliar_y-=1;
+        }
+    }
+
+
+}
+
+void tablero::actualizarD4(int movX, int movY, char Ficha, char Fichacontrario)
+{
+    bool sandwich=false;
+    int Fichas=0;
+    int auxiliar_x=movX;
+    int auxiliar_y=movY;
+
+    while (auxiliar_x>0 and auxiliar_y>0){
+        auxiliar_x-=1;
+        auxiliar_y-=1;
+
+        if(MatTablero[auxiliar_x][auxiliar_y]==Ficha and movX-auxiliar_x-1==Fichas and Fichas!=0){
+            sandwich=true;
+            break;
+        }
+
+        else{
+            if(MatTablero[auxiliar_x][auxiliar_y]==Fichacontrario) Fichas+=1;
+        }
+    }
+
+    //actualizar tablero
+    if(sandwich==true){
+        auxiliar_x=movX-1;
+        auxiliar_y=movY-1;
+        for(int i=0;i<Fichas;i++){
+            MatTablero[auxiliar_x][auxiliar_y]=Ficha;
+
+            auxiliar_x-=1;
             auxiliar_y-=1;
         }
     }
