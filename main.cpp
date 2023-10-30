@@ -1,11 +1,15 @@
 #include "player.h"
 #include "tablero.h"
+#include "manejo_archivos.h"
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
+
+
+
     int tamanio_tablero=8;
     //se guarda la matriz del juego en memoria dinamica
     char **puntero_tablero = new char *[tamanio_tablero];

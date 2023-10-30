@@ -5,9 +5,11 @@ CONFIG -= qt
 
 SOURCES += \
         main.cpp \
+        manejo_archivos.cpp \
         player.cpp \
         tablero.cpp
 
 HEADERS += \
+    manejo_archivos.h \
     player.h \
     tablero.h
