@@ -21,4 +21,18 @@ void escribirArchivo(string name1, string name2, string ganador, string fichas)
 
 }
 
+void saberhistorial()
+{
+    fstream Archivo("historialGame.txt", fstream::in);
+    if(Archivo.is_open()){
+        cout<<"HISTORIAL DEL JUEGO: "<<"\n";
+        string linea="";
+        while(!Archivo.eof()){
+            getline(Archivo,linea);
+            cout<<linea+"\n";
+        }
 
+    }
+
+
+}
