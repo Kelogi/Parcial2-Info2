@@ -22,7 +22,7 @@ int main()
        for(int j = 0; j < tamanio_tablero; j++){
 
 
-           /*if(i==(tamanio_tablero/2) and j==(tamanio_tablero/2) ){
+           if(i==(tamanio_tablero/2) and j==(tamanio_tablero/2) ){
                //ficha blanca (*)
                puntero_tablero[i][j]='*';
            }
@@ -41,9 +41,6 @@ int main()
 
            else{
                puntero_tablero[i][j]=' ';
-           }*/
-           if(i%2==0 and j%2==1){
-               puntero_tablero[i][j]='*';
            }
 
       }
