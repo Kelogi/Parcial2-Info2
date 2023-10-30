@@ -22,7 +22,7 @@ int main()
        for(int j = 0; j < tamanio_tablero; j++){
 
 
-           if(i==(tamanio_tablero/2) and j==(tamanio_tablero/2) ){
+           /*if(i==(tamanio_tablero/2) and j==(tamanio_tablero/2) ){
                //ficha blanca (*)
                puntero_tablero[i][j]='*';
            }
@@ -41,6 +41,9 @@ int main()
 
            else{
                puntero_tablero[i][j]=' ';
+           }*/
+           if(i%2==0 and j%2==1){
+               puntero_tablero[i][j]='*';
            }
 
       }
@@ -55,11 +58,11 @@ int main()
 
 
    int eleccion;
+   cout<<"-Digite 1 para jugar."<<"\n";
+   cout<<"-Digite 2 para observar el historial."<<"\n";
+   cin>>eleccion;
    bool QuienJuega=true; //comienzan las negras
    for(;true;){
-       cout<<"-Digite 1 para jugar."<<"\n";
-       cout<<"-Digite 2 para observar el historial."<<"\n";
-       cin>>eleccion;
 
        if(eleccion ==1){
 
@@ -96,12 +99,14 @@ int main()
                }
             }
            else{
+               cout<<"-----------FIN DEL JUEGO-----------";
+               tablerito.imprimirTablero();
                string nameNegras,nameBlancas;
                cout<<"Nombre jugador-fichas negras: ";
                cin>>nameNegras;
                cout<<"Nombre jugador-fichas blancas: ";
                cin>>nameBlancas;
-               cout<<"----------------RESULTADOS-------------";
+               cout<<"----------------RESULTADOS-------------"<<"\n";
                cout<<"fichas negras: "<<fichasNegras.cantidadFichas_Jugador()<<"\n";
                cout<<"fichas blancas: "<<fichasBlancas.cantidadFichas_Jugador()<<"\n";
                if(fichasNegras.cantidadFichas_Jugador()>fichasBlancas.cantidadFichas_Jugador()){
@@ -112,19 +117,21 @@ int main()
                }
                else if(fichasNegras.cantidadFichas_Jugador()<fichasBlancas.cantidadFichas_Jugador()){
                    cout<<"FICHAS BLANCAS GANADORAS DEL JUEGO."<<"\n";
-                   break;
                    //actualizar datos de la partida
-                  escribirArchivo(nameNegras,nameBlancas,nameBlancas,to_string(fichasBlancas.cantidadFichas_Jugador()));
+                    escribirArchivo(nameNegras,nameBlancas,nameBlancas,to_string(fichasBlancas.cantidadFichas_Jugador()));
+                   break;
                }
                else cout<<"EMPATE"<<"\n";
                break;
            }
       }
 
-      else saberhistorial();
+      else{
+           saberhistorial();
+           break;
+       }
 
    }
 
-    cout << "Hello World!" << endl;
     return 0;
 }
