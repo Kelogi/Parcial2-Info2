@@ -54,58 +54,76 @@ int main()
    player fichasBlancas(puntero_tablero,tamanio_tablero, '*');
 
 
+   int eleccion;
    bool QuienJuega=true; //comienzan las negras
    for(;true;){
+       cout<<"-Digite 1 para jugar."<<"\n";
+       cout<<"-Digite 2 para observar el historial."<<"\n";
+       cin>>eleccion;
 
-       if(tablerito.saberCantidadFichas()!=64){
-           if(QuienJuega==true){
+       if(eleccion ==1){
 
-               cout<<"Turno fichas negras"<<"\n";
-               if(fichasNegras.movimientoP1ayer()==true){
-                   tablerito.imprimirTablero();
-                   fichasNegras.recibirMov_Player();
-                   tablerito.actualizarTableroGeneral(fichasNegras.SaberMovX(),fichasNegras.SaberMovY(),'-','*');
+           if(tablerito.saberCantidadFichas()!=64){
+               if(QuienJuega==true){
+
+                   cout<<"Turno fichas negras"<<"\n";
+                   if(fichasNegras.movimientoP1ayer()==true){
+                       tablerito.imprimirTablero();
+                       fichasNegras.recibirMov_Player();
+                       tablerito.actualizarTableroGeneral(fichasNegras.SaberMovX(),fichasNegras.SaberMovY(),'-','*');
+                   }
+                   else{
+                       cout<<"No tienes movimientos permitidos"<<"\n";
+
+                   }
+                   QuienJuega=false;
                }
+
                else{
-                   cout<<"No tienes movimientos permitidos"<<"\n";
+
+                   cout<<"Turno fichas blancas"<<"\n";
+                   if(fichasBlancas.movimientoP1ayer()==true){
+                       tablerito.imprimirTablero();
+                       fichasBlancas.recibirMov_Player();
+                       tablerito.actualizarTableroGeneral(fichasBlancas.SaberMovX(),fichasBlancas.SaberMovY(),'*','-');
+                   }
+                   else{
+                       cout<<"No tienes movmientos permitidos"<<"\n";
+
+                   }
+                   QuienJuega=true;
 
                }
-               QuienJuega=false;
-           }
-
+            }
            else{
-
-               cout<<"Turno fichas blancas"<<"\n";
-               if(fichasBlancas.movimientoP1ayer()==true){
-                   tablerito.imprimirTablero();
-                   fichasBlancas.recibirMov_Player();
-                   tablerito.actualizarTableroGeneral(fichasBlancas.SaberMovX(),fichasBlancas.SaberMovY(),'*','-');
+               string nameNegras,nameBlancas;
+               cout<<"Nombre jugador-fichas negras: ";
+               cin>>nameNegras;
+               cout<<"Nombre jugador-fichas blancas: ";
+               cin>>nameBlancas;
+               cout<<"----------------RESULTADOS-------------";
+               cout<<"fichas negras: "<<fichasNegras.cantidadFichas_Jugador()<<"\n";
+               cout<<"fichas blancas: "<<fichasBlancas.cantidadFichas_Jugador()<<"\n";
+               if(fichasNegras.cantidadFichas_Jugador()>fichasBlancas.cantidadFichas_Jugador()){
+                   cout<<"FICHAS NEGRAS GANADORAS DEL JUEGO."<<"\n";
+                    //actualizar datos de la partida
+                   escribirArchivo(nameNegras,nameBlancas,nameNegras,to_string(fichasNegras.cantidadFichas_Jugador()));
+                   break;
                }
-               else{
-                   cout<<"No tienes movmientos permitidos"<<"\n";
-
+               else if(fichasNegras.cantidadFichas_Jugador()<fichasBlancas.cantidadFichas_Jugador()){
+                   cout<<"FICHAS BLANCAS GANADORAS DEL JUEGO."<<"\n";
+                   break;
+                   //actualizar datos de la partida
+                  escribirArchivo(nameNegras,nameBlancas,nameBlancas,to_string(fichasBlancas.cantidadFichas_Jugador()));
                }
-               QuienJuega=true;
-
-           }
-        }
-       else{
-           cout<<"fichas negras: "<<fichasNegras.cantidadFichas_Jugador()<<"\n";
-           cout<<"fichas blancas: "<<fichasBlancas.cantidadFichas_Jugador()<<"\n";
-           if(fichasNegras.cantidadFichas_Jugador()>fichasBlancas.cantidadFichas_Jugador()){
-               cout<<"FICHAS NEGRAS GANADORAS DEL JUEGO."<<"\n";
+               else cout<<"EMPATE"<<"\n";
                break;
            }
-           else if(fichasNegras.cantidadFichas_Jugador()<fichasBlancas.cantidadFichas_Jugador()){
-               cout<<"FICHAS BLANCAS GANADORAS DEL JUEGO."<<"\n";
-               break;
-           }
-           else cout<<"EMPATE"<<"\n";
-           break;
-       }
+      }
+
+      else saberhistorial();
 
    }
-
 
     cout << "Hello World!" << endl;
     return 0;
