@@ -27,7 +27,6 @@ void tablero::actualizarTableroGeneral(int movX, int movY, char Ficha, char Fich
 
 void tablero::actualizarArriba(int movX, int movY, char Ficha, char Fichacontrario)
 {
-    MatTablero[movX][movY]=Ficha;
 
     int PY_contraria;
     bool sandwich=false;
